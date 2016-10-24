@@ -141,9 +141,6 @@
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NuSpec.ReferenceGenerator/2.0.0-beta-bld14": {
-        "type": "package"
-      },
       "runtime.native.System/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -1325,20 +1322,6 @@
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "tools/install.ps1"
-      ]
-    },
-    "NuSpec.ReferenceGenerator/2.0.0-beta-bld14": {
-      "sha512": "4glYZM9mf2HMxUvyZD01f1Kkgk4wygEHPB2m0WhVMlrCPfMhNiO+CNi4U6xZhKoJ5H+JL0AR+IgfPcUmd6Md9w==",
-      "type": "package",
-      "path": "NuSpec.ReferenceGenerator/2.0.0-beta-bld14",
-      "files": [
-        "NuSpec.ReferenceGenerator.2.0.0-beta-bld14.nupkg.sha512",
-        "NuSpec.ReferenceGenerator.nuspec",
-        "build/netstandard1.0/NuSpec.ReferenceGenerator.targets",
-        "build/portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10/NuSpec.ReferenceGenerator.targets",
-        "tools/RefGen.exe",
-        "tools/RefGen.exe.config",
-        "tools/RefGen.pdb"
       ]
     },
     "runtime.native.System/4.0.0": {
@@ -4355,8 +4338,7 @@
   "projectFileDependencyGroups": {
     "": [
       "NETStandard.Library >= 1.6.0",
-      "Newtonsoft.Json >= 9.0.1",
-      "NuSpec.ReferenceGenerator >= 2.0.0-beta-bld14"
+      "Newtonsoft.Json >= 9.0.1"
     ],
     ".NETStandard,Version=v1.6": []
   },
