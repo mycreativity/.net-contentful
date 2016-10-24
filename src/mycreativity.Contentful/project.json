@@ -9,6 +9,7 @@
   "releaseNotes": "First release",
   "copyright": "Copyright 2016",
   "tags": [ "contentful", "api", "wrapper", "client", "library" ],
+  "iconUrl": "https://raw.githubusercontent.com/mycreativity/.net-contentful/master/src/mycreativity.Contentful/Assets/icon.png",
   "projectUrl": "https://github.com/mycreativity/.net-contentful",
 
   "dependencies": {
