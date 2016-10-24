@@ -1,9 +1,20 @@
 {
-  "version": "1.0.0-*",
+  "id": "mycreativity.Contentful",
+  "version": "0.1-alpha-*",
+  "authors": [ "jaspers" ],
+  "description": "A Contentful content delivery API client",
+  "title": "Contentful API client",
+  "owners": [ "mycreativity" ],
+  "summary": "A Contentful content delivery API client",
+  "releaseNotes": "First release",
+  "copyright": "Copyright 2016",
+  "tags": [ "contentful", "api", "wrapper", "client", "library" ],
+  "projectUrl": "https://github.com/mycreativity/.net-contentful",
 
   "dependencies": {
     "NETStandard.Library": "1.6.0",
-    "Newtonsoft.Json": "9.0.1"
+    "Newtonsoft.Json": "9.0.1",
+    "NuSpec.ReferenceGenerator": "2.0.0-beta-bld14"
   },
 
   "frameworks": {
