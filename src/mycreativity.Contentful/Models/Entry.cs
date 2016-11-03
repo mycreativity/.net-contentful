@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace mycreativity.Contentful.Models
 {
-    public class Entry
+    public class Entry<T> : EntryBase
     {
-        public dynamic Fields { get; set; }
+        public T Fields { get; set; }
     }
 }

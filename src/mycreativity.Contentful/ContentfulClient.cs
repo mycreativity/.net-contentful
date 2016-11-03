@@ -25,29 +25,63 @@ namespace mycreativity.Contentful
             this.httpClient = createHttpClient(host, accessToken);
         }
 
-        public async Task<Entry> GetEntryAsync(string entryId)
+        public async Task<Entry<dynamic>> GetEntryAsync(string entryId)
         {
-            Entry entry;
+            Entry<dynamic> entry;
             string requestUri = $"spaces/{this.space}/entries/{entryId}";
             using (HttpResponseMessage response = await httpClient.GetAsync(requestUri))
             using (HttpContent content = response.Content)
             {
                 string result = await content.ReadAsStringAsync();
-                entry = await Task.Factory.StartNew<Entry>(() => JsonConvert.DeserializeObject<Entry>(result));
+                entry = await Task.Factory.StartNew<Entry<dynamic>>(() => JsonConvert.DeserializeObject<Entry<dynamic>>(result));
             }
 
             return entry;
         }
 
-        public async Task<SearchResult> SearchEntriesAsync(Dictionary<string, object> parameters) {
-            SearchResult searchResult;
+        public async Task<T> GetEntryAsync<T>(string entryId)
+            where T:EntryBase
+        {
+            T entry;
+            string requestUri = $"spaces/{this.space}/entries/{entryId}";
+            using (HttpResponseMessage response = await httpClient.GetAsync(requestUri))
+            using (HttpContent content = response.Content)
+            {
+                string result = await content.ReadAsStringAsync();
+                entry = await Task.Factory.StartNew<T>(() => JsonConvert.DeserializeObject<T>(result));
+            }
+
+            return entry;
+        }
+
+        public async Task<SearchResult<Entry<dynamic>>> SearchEntriesAsync(Dictionary<string, object> parameters)
+        {
+            SearchResult<Entry<dynamic>> searchResult;
             string queryString = string.Join("&", parameters.Select(kvp => $"{kvp.Key}={kvp.Value}"));
             string requestUri = $"spaces/{this.space}/entries?{queryString}";
-            
+
             using (HttpResponseMessage response = await httpClient.GetAsync(requestUri))
-            using (HttpContent content = response.Content) {
+            using (HttpContent content = response.Content)
+            {
                 string result = await content.ReadAsStringAsync();
-                searchResult = await Task.Factory.StartNew<SearchResult>(() => JsonConvert.DeserializeObject<SearchResult>(result));
+                searchResult = await Task.Factory.StartNew<SearchResult<Entry<dynamic>>>(() => JsonConvert.DeserializeObject<SearchResult<Entry<dynamic>>>(result));
+            }
+
+            return searchResult;
+        }
+
+        public async Task<SearchResult<T>> SearchEntriesAsync<T>(Dictionary<string, object> parameters)
+            where T : EntryBase
+        {
+            SearchResult<T> searchResult;
+            string queryString = string.Join("&", parameters.Select(kvp => $"{kvp.Key}={kvp.Value}"));
+            string requestUri = $"spaces/{this.space}/entries?{queryString}";
+
+            using (HttpResponseMessage response = await httpClient.GetAsync(requestUri))
+            using (HttpContent content = response.Content)
+            {
+                string result = await content.ReadAsStringAsync();
+                searchResult = await Task.Factory.StartNew<SearchResult<T>>(() => JsonConvert.DeserializeObject<SearchResult<T>>(result));
             }
 
             return searchResult;
