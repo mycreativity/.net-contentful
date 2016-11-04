@@ -1,6 +1,6 @@
 {
   "id": "mycreativity.Contentful",
-  "version": "0.1-alpha-*",
+  "version": "0.2-alpha-*",
   "authors": [ "jaspers" ],
   "description": "A Contentful content delivery API client",
   "title": "Contentful API client",
